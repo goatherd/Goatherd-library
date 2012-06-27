@@ -27,8 +27,6 @@ interface ITree
      *
      * @param array $path
      * @param mixed $data
-     *
-     * @return \Goatherd\Commons\Word\ITree - fluent interface
      */
     public function set(array &$path, $data);
 
