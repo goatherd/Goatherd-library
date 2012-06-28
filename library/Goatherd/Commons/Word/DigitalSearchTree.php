@@ -21,14 +21,13 @@ namespace Goatherd\Commons\Word;
  * Nodes are represented as flat arrays while edges are single characters.
  * Radix trees might not profit from that compression.
  * @todo finish implementation
- * @todo might use common abstract trie
  *
  * @category  Goatherd
  * @package Goatherd\Commons
  * @subpackage Word
  */
 class DigitalSearchTree
-implements ITrie
+extends AbstractTrie
 {
     /**#@+
      * Node key specification.
@@ -42,22 +41,50 @@ implements ITrie
      *
      * @var array
      */
-    protected $_root = array();
+    protected $_emptyNode = array();
 
     /**
-     *
-     * @param array $path
-     * @return mixed - node data or NULL on error
+     * (non-PHPdoc)
+     * @see Goatherd\Commons\Word.ITree::get()
      */
     public function &get(array &$path)
     {
         $node = &$this->getNode($path);
 
-        if ($node !== false) {
-            $node = &$node[self::N_DATA];
+        if ($node === false) {
+            return null;
         }
 
-        return $node;
+        return isset($node[self::N_END_OF_WORD])?$node[self::N_END_OF_WORD]:null;
+    }
+
+    /**
+     *
+     * @param array $path
+     * @return boolean - node exists and is leaf
+     */
+    public function isLeaf(array &$path)
+    {
+        $node = &$this->getNode($path);
+        return $node !== false && isset($node[self::N_END_OF_WORD]);
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see Goatherd\Commons\Word.ITree::set()
+     */
+    public function set(array &$path, $data)
+    {
+        $node = &$this->_root;
+        // TODO check path for invalid data? (value of -1 is not allowed
+        foreach ($path as $key) {
+            if (!isset($node[$key])) {
+                $node[$key] = $this->_emptyNode;
+            }
+            $node = &$node[$key];
+        }
+
+        $node[self::N_END_OF_WORD] = $data;
     }
 
     /**
@@ -70,92 +97,14 @@ implements ITrie
     {
         $node = &$this->_root;
         foreach ($path as $key) {
-            if (!isset($node[self::N_CHILDREN][$key])) {
+            if (!isset($node[$key])) {
+                unset($node);
                 $node = false;
                 break;
             }
-            $node = &$node[self::N_CHILDREN][$key];
+            $node = &$node[$key];
         }
 
         return $node;
-    }
-
-    /**
-     * Get node (pointer) as object.
-     *
-     * Note that even if the node itself was not cloned it might still contain
-     * pointers at some level.
-     *
-     * @param array $path
-     * @param boolean $clone - clone node [=true]
-     * @return \Goatherd\Commons\Word\Tree - null if no node was found
-     */
-    public function getNodeObject(array &$path, $clone = true)
-    {
-        if ($clone === true) {
-            $node = &$this->getNode($path);
-        } else {
-            $node = $this->getNode($path);
-        }
-
-        if ($node === false) {
-            return null;
-        }
-
-        $obj = new static();
-        $obj->setRoot($node);
-
-        return $obj;
-    }
-
-    /**
-     *
-     * @param array $path
-     * @param mixed $data
-     */
-    public function set(array &$path, $data)
-    {
-        $node = &$this->_root;
-        foreach ($path as $key) {
-            if (!isset($node[self::N_CHILDREN][$key])) {
-                $node[self::N_CHILDREN][$key] = $this->_emptyNode;
-            }
-            $node = &$node[self::N_CHILDREN][$key];
-        }
-
-        $node[self::N_DATA] = $data;
-    }
-
-    /**
-     *
-     * @param array $path
-     * @return boolean - node exists and is leaf
-     */
-    public function isLeaf(array &$path)
-    {
-        $node = &$this->getNode($path);
-        return $node !== false && isset($node[self::N_DATA]);
-    }
-
-    /**
-     * Get root reference.
-     *
-     * @return array
-     */
-    public function &getRoot()
-    {
-        return $this->_root;
-    }
-
-    /**
-     * Override root.
-     *
-     * @param array $node
-     * @return \Goatherd\Commons\Word\ITree - fluent interface
-     */
-    public function setRoot(array &$node)
-    {
-        $this->_root = &$node;
-        return $this;
     }
 }

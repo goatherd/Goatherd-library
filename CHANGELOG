@@ -1,3 +1,9 @@
-2012-06-27:
-    - added generic tree data structure proposal
-    - added generic digital search tree (trie) data structure proposal
+2012-06-28:
+    - added abstract tree
+    - added abstract trie
+    - added generic tree data structure
+    - added generic digital search tree data structure (as trie)
+    
+    - added generic ternary search tree
+    
+    - added unit tests

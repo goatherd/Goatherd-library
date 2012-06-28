@@ -47,28 +47,6 @@ extends DigitalSearchTree // TODO might use common abstract implementation
     /**#@-*/
 
     /**
-     *
-     * @var array
-     */
-    protected $_root = array();
-
-    /**
-     *
-     * @param array $path
-     * @return mixed - node data or NULL on error
-     */
-    public function &get(array &$path)
-    {
-        $node = &$this->getNode($path);
-
-        if ($node !== false) {
-            $node = &$node[self::N_DATA];
-        }
-
-        return $node;
-    }
-
-    /**
      * Get node.
      *
      * @param array $path
@@ -89,34 +67,6 @@ extends DigitalSearchTree // TODO might use common abstract implementation
     }
 
     /**
-     * Get node (pointer) as object.
-     *
-     * Note that even if the node itself was not cloned it might still contain
-     * pointers at some level.
-     *
-     * @param array $path
-     * @param boolean $clone - clone node [=true]
-     * @return \Goatherd\Commons\Word\Tree - null if no node was found
-     */
-    public function getNodeObject(array &$path, $clone = true)
-    {
-        if ($clone === true) {
-            $node = &$this->getNode($path);
-        } else {
-            $node = $this->getNode($path);
-        }
-
-        if ($node === false) {
-            return null;
-        }
-
-        $obj = new static();
-        $obj->setRoot($node);
-
-        return $obj;
-    }
-
-    /**
      *
      * @param array $path
      * @param mixed $data
@@ -132,17 +82,6 @@ extends DigitalSearchTree // TODO might use common abstract implementation
         }
 
         $node[self::N_DATA] = $data;
-    }
-
-    /**
-     *
-     * @param array $path
-     * @return boolean - node exists and is leaf
-     */
-    public function isLeaf(array &$path)
-    {
-        $node = &$this->getNode($path);
-        return $node !== false && isset($node[self::N_DATA]);
     }
 
     /**

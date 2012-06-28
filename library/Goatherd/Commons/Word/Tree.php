@@ -26,7 +26,7 @@ namespace Goatherd\Commons\Word;
  * @subpackage Word
  */
 class Tree
-implements ITree
+extends AbstractTree
 {
     /**#@+
      * Node key specification.
@@ -76,6 +76,7 @@ implements ITree
         $node = &$this->_root;
         foreach ($path as $key) {
             if (!isset($node[self::N_CHILDREN][$key])) {
+                unset($node);
                 $node = false;
                 break;
             }
@@ -83,34 +84,6 @@ implements ITree
         }
 
         return $node;
-    }
-
-    /**
-     * Get node (pointer) as object.
-     *
-     * Note that even if the node itself was not cloned it might still contain
-     * pointers at some level.
-     *
-     * @param array $path
-     * @param boolean $clone - clone node [=true]
-     * @return \Goatherd\Commons\Word\Tree - null if no node was found
-     */
-    public function getNodeObject(array &$path, $clone = true)
-    {
-        if ($clone === true) {
-            $node = &$this->getNode($path);
-        } else {
-            $node = $this->getNode($path);
-        }
-
-        if ($node === false) {
-            return null;
-        }
-
-        $obj = new static();
-        $obj->setRoot($node);
-
-        return $obj;
     }
 
     /**
@@ -140,27 +113,5 @@ implements ITree
     {
         $node = &$this->getNode($path);
         return $node !== false && isset($node[self::N_DATA]);
-    }
-
-    /**
-     * Get root reference.
-     *
-     * @return array
-     */
-    public function &getRoot()
-    {
-        return $this->_root;
-    }
-
-    /**
-     * Override root.
-     *
-     * @param array $node
-     * @return \Goatherd\Commons\Word\ITree - fluent interface
-     */
-    public function setRoot(array &$node)
-    {
-        $this->_root = &$node;
-        return $this;
     }
 }
