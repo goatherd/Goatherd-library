@@ -3,6 +3,7 @@
     - added abstract trie
     - added generic tree data structure
     - added generic digital search tree data structure (as trie)
+    - added simple suffix compression for digital search tree
     
     - added generic ternary search tree
     
