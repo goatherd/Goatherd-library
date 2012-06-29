@@ -5,6 +5,7 @@
     - added generic digital search tree data structure (as trie)
     - added simple suffix compression for digital search tree
     - added leaf compressed DST
+    - added 8bit charset trait for use with AbstractTrie
     
     - added generic ternary search tree
     
