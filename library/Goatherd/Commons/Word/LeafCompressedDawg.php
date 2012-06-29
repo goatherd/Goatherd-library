@@ -15,35 +15,16 @@
 namespace Goatherd\Commons\Word;
 
 /**
- * Suffix-compression for DigitalSearchTree and derivates.
- *
- * The implementation is neither space nor time efficient.
- *
- * @note a compressed trie must not be written.
+ * Handles compressed leaves.
+ * See Dawg for further detail
  *
  * @category  Goatherd
  * @package Goatherd\Commons
  * @subpackage Word
  */
-class Dawg
+class LeafCompressedDawg
+extends Dawg
 {
-    /**
-     *
-     * @var integer
-     */
-    const N_UID = -2;
-
-    /**
-     * Compresses trie using references for common suffices.
-     *
-     * @param DigitalSearchTree $tree
-     */
-    public function compress(DigitalSearchTree $tree)
-    {
-        $ids = array();
-        $this->compressNode($tree->getRoot(), $ids);
-    }
-
     /**
      * Compress subtree.
      *
@@ -55,7 +36,7 @@ class Dawg
         foreach ($node as $key => &$child) {
             // ignore compressed leafs
             // ignore special keys
-            if (is_string($key) || $key >= 0) {
+            if ($child !== true && (is_string($key) || $key >= 0)) {
                 $id = $this->getNodeId($child);
                 if (!isset($ids[$id])) {
                     // compress subtree
@@ -87,8 +68,8 @@ class Dawg
 
         foreach ($children as $k) {
             $id .= $k;
-            if ($k !== DigitalSearchTree::N_END_OF_WORD) {
-                $child = &$node[$k];
+            $child = &$node[$k];
+            if ($k !== DigitalSearchTree::N_END_OF_WORD && $child !== true) {
                 $id .= $this->getNodeId($child);
             }
         }

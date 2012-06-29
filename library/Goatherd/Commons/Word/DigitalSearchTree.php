@@ -18,9 +18,14 @@ namespace Goatherd\Commons\Word;
  * Simple trie implementation.
  * See also http://xlinux.nist.gov/dads/HTML/digitalSearchTree.html
  *
- * Nodes are represented as flat arrays while edges are single characters.
- * Radix trees might not profit from that compression.
- * @todo finish implementation
+ * Nodes are represented using flat arrays holding end-of-word flag alongside
+ * edge labels. It is assumed that no edge can be labeled using a negative
+ * integer.
+ * Radix trees might not profit from that compression as additional logic is
+ * needed.
+ *
+ * @note it is not intended to but the DST can be used to store data
+ *       as a hash table. However suffix compression will not work.
  *
  * @category  Goatherd
  * @package Goatherd\Commons
@@ -66,7 +71,7 @@ extends AbstractTrie
     public function isLeaf(array &$path)
     {
         $node = &$this->getNode($path);
-        return $node !== false && isset($node[self::N_END_OF_WORD]);
+        return isset($node[self::N_END_OF_WORD]);
     }
 
     /**

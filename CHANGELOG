@@ -4,6 +4,7 @@
     - added generic tree data structure
     - added generic digital search tree data structure (as trie)
     - added simple suffix compression for digital search tree
+    - added leaf compressed DST
     
     - added generic ternary search tree
     
