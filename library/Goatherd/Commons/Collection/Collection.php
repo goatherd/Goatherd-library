@@ -23,7 +23,7 @@ namespace Goatherd\Commons\Collection;
  */
 class Collection
 extends \ArrayObject
-implements ICollection
+implements CollectionInterface
 {
     /**
      * Entity base class/ interface.
@@ -34,7 +34,7 @@ implements ICollection
 
     /**
      * (non-PHPdoc)
-     * @see Goatherd\Commons\Collection.ICollection::getEntityNamespace()
+     * @see Goatherd\Commons\Collection.CollectionInterface::getEntityNamespace()
      */
     public function getEntityNamespace()
     {
@@ -43,7 +43,7 @@ implements ICollection
 
     /**
      * (non-PHPdoc)
-     * @see Goatherd\Commons\Collection.ICollection::clear()
+     * @see Goatherd\Commons\Collection.CollectionInterface::clear()
      */
     public function clear()
     {
@@ -73,9 +73,19 @@ implements ICollection
     {
         // TODO: might specify interfaces too!
         if (!is_object($value) && null !== $value) {
-            throw new \InvalidArgumentException(sprintf("Value must be an object or null. '%s' given.", gettype($value)));
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Value must be an object or null. '%s' given.",
+                    gettype($value)
+                )
+            );
         } elseif (!($value instanceof $this->_entityNamespace)) {
-            throw new \InvalidArgumentException(sprintf("Value must implement '%s'.", $this->_entityNamespace));
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Value must implement '%s'.",
+                    $this->_entityNamespace
+                )
+            );
         }
         parent::offsetSet($offset, $value);
     }

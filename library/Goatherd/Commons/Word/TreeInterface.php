@@ -21,7 +21,7 @@ namespace Goatherd\Commons\Word;
  * @package Goatherd\Commons
  * @subpackage Word
  */
-interface ITree
+interface TreeInterface
 {
     /**
      *
@@ -55,7 +55,7 @@ interface ITree
      * Override root.
      *
      * @param array $node
-     * @return \Goatherd\Commons\Word\ITree - fluent interface
+     * @return \Goatherd\Commons\Word\TreeInterface - fluent interface
      */
     public function setRoot(array &$node);
 }

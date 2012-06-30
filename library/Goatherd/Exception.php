@@ -19,4 +19,8 @@ namespace Goatherd;
  * @category  Goatherd
  * @package   Goatherd
  */
-class Exception extends \Exception {}
+class Exception
+extends \Exception
+{
+
+}

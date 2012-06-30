@@ -23,7 +23,7 @@ namespace Goatherd\Commons\Collection;
  * @package Goatherd\Commons
  * @subpackage Entity
  */
-interface IEntity
+interface EntityInterface
 {
     /**
      *

@@ -26,7 +26,7 @@ namespace Goatherd\Commons\Word;
  * @subpackage Word
  */
 class Tree
-extends AbstractTree
+extends TreeAbstract
 {
     /**#@+
      * Node key specification.

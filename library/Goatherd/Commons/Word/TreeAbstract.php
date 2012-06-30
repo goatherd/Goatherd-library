@@ -15,14 +15,14 @@
 namespace Goatherd\Commons\Word;
 
 /**
- * Common features of ITree interface.
+ * Common features of TreeInterface interface.
  *
  * @category  Goatherd
  * @package Goatherd\Commons
  * @subpackage Word
  */
-abstract class AbstractTree
-implements ITree
+abstract class TreeAbstract
+implements TreeInterface
 {
     /**
      *
@@ -80,7 +80,7 @@ implements ITree
      * Override root.
      *
      * @param array $node
-     * @return \Goatherd\Commons\Word\ITree - fluent interface
+     * @return \Goatherd\Commons\Word\TreeInterface - fluent interface
      */
     public function setRoot(array &$node)
     {

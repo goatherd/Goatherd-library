@@ -13,10 +13,10 @@
  *
  * @note 2012-05-17 link is broken use https://gist.github.com/221634 instead
  *
- *     // Example which loads classes for the Doctrine Common package in the
- *     // Doctrine\Common namespace.
- *     $classLoader = new SplClassLoader('Doctrine\Common', '/path/to/doctrine');
- *     $classLoader->register();
+ *   // Example which loads classes for the Doctrine Common package in the
+ *   // Doctrine\Common namespace.
+ *   $classLoader = new SplClassLoader('Doctrine\Common', '/path/to/doctrine');
+ *   $classLoader->register();
  *
  * @author Jonathan H. Wage <jonwage@gmail.com>
  * @author Roman S. Borschel <roman@code-factory.org>
@@ -44,7 +44,8 @@ class SplClassLoader
     }
 
     /**
-     * Sets the namespace separator used by classes in the namespace of this class loader.
+     * Sets the namespace separator used by classes in the namespace of this
+     * class loader.
      *
      * @param string $sep The separator to use.
      */
@@ -54,7 +55,8 @@ class SplClassLoader
     }
 
     /**
-     * Gets the namespace seperator used by classes in the namespace of this class loader.
+     * Gets the namespace seperator used by classes in the namespace of this
+     * class loader.
      *
      * @return void
      */
@@ -64,7 +66,8 @@ class SplClassLoader
     }
 
     /**
-     * Sets the base include path for all class files in the namespace of this class loader.
+     * Sets the base include path for all class files in the namespace of this
+     * class loader.
      *
      * @param string $includePath
      */
@@ -74,7 +77,8 @@ class SplClassLoader
     }
 
     /**
-     * Gets the base include path for all class files in the namespace of this class loader.
+     * Gets the base include path for all class files in the namespace of this
+     * class loader.
      *
      * @return string $includePath
      */
@@ -84,7 +88,8 @@ class SplClassLoader
     }
 
     /**
-     * Sets the file extension of class files in the namespace of this class loader.
+     * Sets the file extension of class files in the namespace of this
+     * class loader.
      *
      * @param string $fileExtension
      */
@@ -94,7 +99,8 @@ class SplClassLoader
     }
 
     /**
-     * Gets the file extension of class files in the namespace of this class loader.
+     * Gets the file extension of class files in the namespace of this
+     * class loader.
      *
      * @return string $fileExtension
      */
@@ -127,17 +133,36 @@ class SplClassLoader
      */
     public function loadClass($className)
     {
-        if (null === $this->_namespace || $this->_namespace.$this->_namespaceSeparator === substr($className, 0, strlen($this->_namespace.$this->_namespaceSeparator))) {
+        if (null === $this->_namespace
+            || $this->_namespace.$this->_namespaceSeparator
+            ===
+            substr(
+                $className, 0,
+                strlen(
+                    $this->_namespace.$this->_namespaceSeparator
+                )
+            )
+        ) {
             $fileName = '';
             $namespace = '';
-            if (false !== ($lastNsPos = strripos($className, $this->_namespaceSeparator))) {
+            if (false
+            !== ($lastNsPos = strripos($className, $this->_namespaceSeparator))
+            ) {
                 $namespace = substr($className, 0, $lastNsPos);
                 $className = substr($className, $lastNsPos + 1);
-                $fileName = str_replace($this->_namespaceSeparator, DIRECTORY_SEPARATOR, $namespace) . DIRECTORY_SEPARATOR;
+                $fileName = str_replace(
+                    $this->_namespaceSeparator, DIRECTORY_SEPARATOR, $namespace
+                ) . DIRECTORY_SEPARATOR;
             }
-            $fileName .= str_replace('_', DIRECTORY_SEPARATOR, $className) . $this->_fileExtension;
+            $fileName .= str_replace(
+                '_', DIRECTORY_SEPARATOR, $className
+            ) . $this->_fileExtension;
 
-            require ($this->_includePath !== null ? $this->_includePath . DIRECTORY_SEPARATOR : '') . $fileName;
+            require (
+                $this->_includePath !== null
+              ? $this->_includePath . DIRECTORY_SEPARATOR
+                : ''
+            ) . $fileName;
         }
     }
 }

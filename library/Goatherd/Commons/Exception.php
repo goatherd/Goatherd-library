@@ -19,4 +19,8 @@ namespace Goatherd\Commons;
  * @category  Goatherd
  * @package   Goatherd\Commons
  */
-class Exception extends \Goatherd\Exception {}
+class Exception
+extends \Goatherd\Exception
+{
+
+}

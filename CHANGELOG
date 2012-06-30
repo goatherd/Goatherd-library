@@ -1,4 +1,4 @@
-2012-06-28:
+2012-06-30:
     - added abstract tree
     - added abstract trie
     - added generic tree data structure
@@ -6,6 +6,8 @@
     - added simple suffix compression for digital search tree
     - added leaf compressed DST
     - added 8bit charset trait for use with AbstractTrie
+    - enforced Zend Framework coding standards
+      (http://framework.zend.com/manual/en/coding-standard.html)
     
     - added generic ternary search tree
     

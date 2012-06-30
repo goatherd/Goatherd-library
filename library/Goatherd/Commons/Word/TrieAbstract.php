@@ -21,13 +21,13 @@ namespace Goatherd\Commons\Word;
  * @package Goatherd\Commons
  * @subpackage Word
  */
-abstract class AbstractTrie
-extends AbstractTree
-implements ITrie
+abstract class TrieAbstract
+extends TreeAbstract
+implements TrieInterface
 {
     /**
      * (non-PHPdoc)
-     * @see Goatherd\Commons\Word.ITrie::addWord()
+     * @see Goatherd\Commons\Word.TrieInterface::addWord()
      */
     public function addWord(&$word)
     {
@@ -37,7 +37,7 @@ implements ITrie
 
     /**
      * (non-PHPdoc)
-     * @see Goatherd\Commons\Word.ITrie::addWords()
+     * @see Goatherd\Commons\Word.TrieInterface::addWords()
      */
     public function addWords(&$words)
     {
@@ -48,7 +48,7 @@ implements ITrie
 
     /**
      * (non-PHPdoc)
-     * @see Goatherd\Commons\Word.ITrie::has()
+     * @see Goatherd\Commons\Word.TrieInterface::has()
      */
     public function has(&$word)
     {
@@ -58,7 +58,7 @@ implements ITrie
 
     /**
      * (non-PHPdoc)
-     * @see Goatherd\Commons\Word.ITrie::wordToPath()
+     * @see Goatherd\Commons\Word.TrieInterface::wordToPath()
      */
     public function wordToPath(&$word)
     {

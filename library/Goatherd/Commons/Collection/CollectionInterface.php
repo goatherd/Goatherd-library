@@ -25,7 +25,7 @@ namespace Goatherd\Commons\Collection;
  * @package Goatherd\Commons
  * @subpackage Collection
  */
-interface ICollection
+interface CollectionInterface
 extends \ArrayAccess, \IteratorAggregate, \Countable
 {
     /**

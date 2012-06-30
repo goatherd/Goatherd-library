@@ -43,7 +43,9 @@ extends DigitalSearchTree
             return true;
         }
 
-        return isset($node[self::N_END_OF_WORD])?$node[self::N_END_OF_WORD]:null;
+        return isset($node[self::N_END_OF_WORD])
+            ?$node[self::N_END_OF_WORD]
+            :null;
     }
 
     /**
@@ -58,7 +60,7 @@ extends DigitalSearchTree
 
     /**
      * (non-PHPdoc)
-     * @see Goatherd\Commons\Word.ITree::set()
+     * @see Goatherd\Commons\Word.TreeInterface::set()
      */
     public function set(array &$path, $data)
     {

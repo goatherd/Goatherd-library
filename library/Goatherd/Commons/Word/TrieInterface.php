@@ -4,7 +4,7 @@
  * @package Goatherd\Commons
  *
  * @author Copyright (c) 2012 Maik Penz <maik@phpkuh.de>
- * @version $Id: ITrie.php 97 2012-04-27 22:41:30Z maik@phpkuh.de $
+ * @version $Id: TrieInterface.php 97 2012-04-27 22:41:30Z maik@phpkuh.de $
  *
  * This file is part of Goatherd library.
  *
@@ -29,8 +29,8 @@ namespace Goatherd\Commons\Word;
  * @package Goatherd\Commons
  * @subpackage Word
  */
-interface ITrie
-extends ITree
+interface TrieInterface
+extends TreeInterface
 {
     /**
      * Add word to trie.

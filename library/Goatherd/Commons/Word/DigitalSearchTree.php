@@ -32,7 +32,7 @@ namespace Goatherd\Commons\Word;
  * @subpackage Word
  */
 class DigitalSearchTree
-extends AbstractTrie
+extends TrieAbstract
 {
     /**#@+
      * Node key specification.
@@ -50,7 +50,7 @@ extends AbstractTrie
 
     /**
      * (non-PHPdoc)
-     * @see Goatherd\Commons\Word.ITree::get()
+     * @see Goatherd\Commons\Word.TreeInterface::get()
      */
     public function &get(array &$path)
     {
@@ -60,7 +60,9 @@ extends AbstractTrie
             return null;
         }
 
-        return isset($node[self::N_END_OF_WORD])?$node[self::N_END_OF_WORD]:null;
+        return isset($node[self::N_END_OF_WORD])
+            ?$node[self::N_END_OF_WORD]
+            :null;
     }
 
     /**
@@ -76,7 +78,7 @@ extends AbstractTrie
 
     /**
      * (non-PHPdoc)
-     * @see Goatherd\Commons\Word.ITree::set()
+     * @see Goatherd\Commons\Word.TreeInterface::set()
      */
     public function set(array &$path, $data)
     {

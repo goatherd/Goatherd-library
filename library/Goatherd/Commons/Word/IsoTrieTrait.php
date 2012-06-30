@@ -27,7 +27,7 @@ trait IsoTrieTrait
      * Simplified for 8bit charsets.
      *
      * (non-PHPdoc)
-     * @see Goatherd\Commons\Word.ITrie::wordToPath()
+     * @see Goatherd\Commons\Word.TrieInterface::wordToPath()
      */
     public function wordToPath(&$word)
     {

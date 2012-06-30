@@ -20,8 +20,8 @@ namespace Goatherd\Commons\Collection;
  * @package Goatherd\Commons
  * @subpackage Entity
  */
-abstract class AbstractEntity
-implements IEntity
+abstract class EntityAbstract
+implements EntityInterface
 {
     use EntityTrait;
 }

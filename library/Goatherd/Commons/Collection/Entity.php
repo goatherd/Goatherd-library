@@ -22,7 +22,7 @@ namespace Goatherd\Commons\Collection;
  * @subpackage Entity
  */
 class Entity
-extends AbstractEntity
+extends EntityAbstract
 {
     protected $_writable = true;
 }

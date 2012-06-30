@@ -39,7 +39,7 @@ trait EntityTrait
 
     /**
      * (non-PHPdoc)
-     * @see Goatherd\Commons\Collection.IEntity::__get()
+     * @see Goatherd\Commons\Collection.EntityInterface::__get()
      */
     public function __get($key)
     {
@@ -56,7 +56,7 @@ trait EntityTrait
 
     /**
      * (non-PHPdoc)
-     * @see Goatherd\Commons\Collection.IEntity::__set()
+     * @see Goatherd\Commons\Collection.EntityInterface::__set()
      */
     public function __set($key, $value)
     {
@@ -73,7 +73,7 @@ trait EntityTrait
 
     /**
      * (non-PHPdoc)
-     * @see Goatherd\Commons\Collection.IEntity::__unset()
+     * @see Goatherd\Commons\Collection.EntityInterface::__unset()
      */
     public function __unset($key)
     {
@@ -90,7 +90,7 @@ trait EntityTrait
 
     /**
      * (non-PHPdoc)
-     * @see Goatherd\Commons\Collection.IEntity::__isset()
+     * @see Goatherd\Commons\Collection.EntityInterface::__isset()
      */
     public function __isset($key)
     {
@@ -104,7 +104,7 @@ trait EntityTrait
 
     /**
      * (non-PHPdoc)
-     * @see Goatherd\Commons\Collection.IEntity::isWritable()
+     * @see Goatherd\Commons\Collection.EntityInterface::isWritable()
      */
     public function isWritable($writable = null)
     {
@@ -119,7 +119,7 @@ trait EntityTrait
 
     /**
      * (non-PHPdoc)
-     * @see Goatherd\Commons\Collection.IEntity::getProperties()
+     * @see Goatherd\Commons\Collection.EntityInterface::getProperties()
      */
     public function getProperties()
     {

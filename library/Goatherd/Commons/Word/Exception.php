@@ -20,4 +20,8 @@ namespace Goatherd\Commons\Word;
  * @package   Goatherd\Commons
  * @subpackage Word
  */
-class Exception extends \Goatherd\Commons\Exception {}
+class Exception
+extends \Goatherd\Commons\Exception
+{
+
+}
