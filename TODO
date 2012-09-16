@@ -1,0 +1,26 @@
+Active:
+	- implement multi curl crawler
+	- implement unicode filter for crawler response
+	- implement xml filter for crawler response
+	- extend process proposals
+	- implement generic process fork abstraction
+	- implement validation filter for curl crawler response
+
+Soon:
+	- add abstract IPC interface
+	- implement simplified AMQP interface
+	- implement AMQP IPC
+
+	- implement shared memory IPC interface
+	- implement generic daemon
+	
+	- add phpunit setup
+	- add unit tests
+
+Backlog:
+	- implement load balancing daemon
+	- add generic TST implementation
+	- extend documentation for Commons
+	- extend documentation for Crawler
+	- extend documentation for Process
+		

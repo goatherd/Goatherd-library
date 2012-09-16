@@ -35,7 +35,7 @@ final class Version
      *
      * @var srtring
      */
-    const VERSION = "0.7-alpha";
+    const VERSION = "0.7.2-alpha";
 
     /**
      *
