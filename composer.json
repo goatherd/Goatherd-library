@@ -1,0 +1,12 @@
+{
+    "name": "goatherd/goatherd-library",
+    "version": "1.0.3-alpha",
+    "require": {
+        "php": ">=5.4.0"
+    }
+    "autoload": {
+        "psr-0": {
+            "Goatherd\\": "library/"
+        }
+    }
+}

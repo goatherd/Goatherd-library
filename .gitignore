@@ -5,3 +5,8 @@ demos/
 extras/documentation
 
 /local
+
+.buildpath
+.settings/
+.project
+*~

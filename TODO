@@ -17,6 +17,9 @@ Soon:
 	- add phpunit setup
 	- add unit tests
 
+	- migrate cool Zend\Version feature to require latest github version
+	- drop text changelog
+
 Backlog:
 	- implement load balancing daemon
 	- add generic TST implementation
