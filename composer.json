@@ -1,6 +1,19 @@
 {
     "name": "goatherd/goatherd-library",
     "version": "1.0.3-alpha",
+    "type": "library",
+    "description": "Data mining and text analyis library for PHP 5.4",
+    "keywords": ["goatherd","text","analysis","trie","data","tree"],
+    "homepage": "http://github.com/goatherd/Goatherd-library/",
+    "license": "LGPL",
+    "authors": [
+        {
+            "name": "Maik Penz",
+            "email": "maik@phpkuh.de",
+            "homepage": "http://dev.goatherd.org",
+            "role": "Developer"
+        }
+    ],
     "require": {
         "php": ">=5.4.0"
     }
