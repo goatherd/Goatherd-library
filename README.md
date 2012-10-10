@@ -8,6 +8,27 @@ The design concentrates on model abstraction, data structures and word processin
 
 A side effect is a basic collection of pseudo-threading and console task helpers.
 
+Installation
+------------
+
+At least PHP 5.4.2 is required.
+
+* Using git
+ 
+  `git clone https://github.com/goatherd/Goatherd-library.git GoatherdLibrary`
+
+* As git submodule
+ 
+  `git submodule add https://github.com/goatherd/Goatherd-library.git path/to/GoatherdLibrary`
+
+* Using composer add those lines to your composer.json (and adjust the branch/ tag as needed)
+ 
+```json
+  "require": {
+    "goatherd/goatherd-library":"dev-master"
+  }
+```
+
 Standards
 ---------
 
