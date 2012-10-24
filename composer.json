@@ -5,7 +5,7 @@
     "description": "Data mining and text analyis library for PHP 5.4",
     "keywords": ["goatherd","text","analysis","trie","data","tree"],
     "homepage": "http://github.com/goatherd/Goatherd-library/",
-    "license": "LGPL",
+    "license": "BSD",
     "authors": [
         {
             "name": "Maik Penz",
